@@ -1,0 +1,24 @@
+# Pastas de dados dos brokers locais (Não commitar discos gigantes)
+kafka-data1/
+kafka-data2/
+kafka-data3/
+redis-data/
+postgres-data/
+
+# Pastas de Plugins / Arquivos Binários Baixados
+connectors/
+*.jar
+
+# Python e Ambientes Virtuais
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# Monitoramento e Dados Voláteis do Grafana
+grafana-storage/
+
+# Arquivos do OS
+.DS_Store
+Thumbs.db

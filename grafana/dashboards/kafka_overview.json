@@ -1,0 +1,34 @@
+{
+  "dashboard": {
+    "id": null,
+    "uid": "kafka-overview",
+    "title": "Kafka - Overview",
+    "tags": ["kafka"],
+    "timezone": "browser",
+    "schemaVersion": 30,
+    "version": 1,
+    "panels": [
+      {
+        "type": "text",
+        "title": "Instructions",
+        "gridPos": {"x": 0, "y": 0, "w": 24, "h": 4},
+        "options": {"content": "This dashboard shows Prometheus metrics for the local demo (Prometheus & Kafka).\nIf metrics are missing, ensure JMX exporter is configured on brokers.", "mode": "markdown"}
+      },
+      {
+        "type": "stat",
+        "title": "Prometheus Up",
+        "datasource": "Prometheus",
+        "targets": [{"expr": "up", "legendFormat": "up"}],
+        "gridPos": {"x": 0, "y": 4, "w": 6, "h": 4}
+      },
+      {
+        "type": "graph",
+        "title": "Prometheus scrape duration (example)",
+        "datasource": "Prometheus",
+        "targets": [{"expr": "scrape_samples_post_metric_relabeling", "legendFormat": "scrapes"}],
+        "gridPos": {"x": 6, "y": 4, "w": 18, "h": 8}
+      }
+    ]
+  },
+  "overwrite": true
+}
