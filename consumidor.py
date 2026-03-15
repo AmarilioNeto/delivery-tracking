@@ -26,8 +26,9 @@ def main():
 
     conf = {
         'bootstrap.servers': servidores_kafka,
-        'group.id': 'grupo-sincronizador-redis',
-        'auto.offset.reset': 'latest',
+        # Esse grupo foi o que leu os dados originais (entregador:2)
+        'group.id': 'grupo-sincronizador-redis-v2',
+        'auto.offset.reset': 'earliest',
         # DESATIVADO o auto-commit para garantir tolerância a falhas.
         # Só comitamos o progresso após a certeza de que salvamos no banco de dados em memória.
         'enable.auto.commit': False 
@@ -64,6 +65,7 @@ def main():
                 consumidor.commit(asynchronous=True) 
                 continue
                 
+            # Aqui é o ponto em que ele extrai do JSON e cria o entregador:2 original!
             id_entregador = dados_entregador.get('driver_id')
             
             if id_entregador:
